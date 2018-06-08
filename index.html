@@ -229,6 +229,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/08/June-8-2018/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ease">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ease">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/08/June-8-2018/" itemprop="url">用原生js生成一个键盘导航</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-08T16:27:41+08:00">
+                2018-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>需求：建立一个键盘导航页面，按下相应的键就可以到达对应的网址，并且要求相应键的所对应的网址可以修改，并且可以永久储存起来</p>
+</blockquote>
+<p>分析：首先想到要解决的问题是怎么生成26个键，如果是单独用一个个<kbd></kbd>写出来并且一遍一遍地复制那就太麻烦了，所以这里我就用了<br>二维数组+hash的方法去生成26个字母的键盘。也就是用js生成一个键盘，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keys = &#123;</span><br><span class="line">       <span class="number">0</span>: [<span class="string">'q'</span>, <span class="string">'w'</span>, <span class="string">'e'</span>, <span class="string">'r'</span>, <span class="string">'t'</span>, <span class="string">'y'</span>, <span class="string">'u'</span>, <span class="string">'i'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>],</span><br><span class="line">       <span class="number">1</span>: [<span class="string">'a'</span>, <span class="string">'s'</span>, <span class="string">'d'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>],</span><br><span class="line">       <span class="number">2</span>: [<span class="string">'z'</span>, <span class="string">'x'</span>, <span class="string">'c'</span>, <span class="string">'v'</span>, <span class="string">'b'</span>, <span class="string">'n'</span>, <span class="string">'m'</span>],</span><br><span class="line">       length: <span class="number">3</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> hash = &#123;</span><br><span class="line">       q: <span class="string">'qq.com'</span>,</span><br><span class="line">       w: <span class="string">'weibo.com'</span>,</span><br><span class="line">       e: <span class="string">'ele.me'</span>,</span><br><span class="line">       r: <span class="string">'renren.com'</span>,</span><br><span class="line">       t: <span class="string">'taobao.com'</span>,</span><br><span class="line">       y: <span class="string">'yahoo.cn'</span>,</span><br><span class="line">       u: <span class="string">'ubuntu.com'</span>,</span><br><span class="line">       i: <span class="string">'iqiyi.com'</span>,</span><br><span class="line">       o: <span class="string">'oppo.com'</span>,</span><br><span class="line">       p: <span class="literal">undefined</span>,</span><br><span class="line">       a: <span class="string">'alibaba.com'</span>,</span><br><span class="line">       z: <span class="string">'zhihu.com'</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>由上面的可以看出，我们先声明了key对象，对象里面有个二维数组，数组提供了每一行对应的<strong>键位</strong> ，然后下面声明了一个hash(突然发现学好数据结构很重要)，建立hash的目的是为了键盘上的键能对应相应的网址。所以，我们可以通过while循环生成键盘上的键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> index = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (index &lt; keys.length) &#123;</span><br><span class="line">      <span class="keyword">var</span> divContainer = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">      mainContainer.appendChild(divContainer);</span><br><span class="line"></span><br><span class="line">      rows = keys[index];</span><br><span class="line">      <span class="built_in">console</span>.log(rows)</span><br><span class="line">      index2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (index2 &lt; rows.length) &#123;</span><br><span class="line">          <span class="keyword">var</span> kbdContainer = <span class="built_in">document</span>.createElement(<span class="string">'kbd'</span>);</span><br><span class="line">          kbdContainer.textContent = rows[index2];</span><br><span class="line">          <span class="keyword">var</span> btnContainer = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</span><br><span class="line">          btnContainer.textContent = <span class="string">'edit'</span>;</span><br><span class="line">          btnContainer.id = rows[index2];</span><br><span class="line">          kbdContainer.appendChild(btnContainer);</span><br><span class="line">          btnContainer.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">btn</span>) </span>&#123;</span><br><span class="line">              <span class="comment">// 打印btn中target中的Id，利用哈希（数组）的特性</span></span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'点击了'</span> + btn[<span class="string">'target'</span>][<span class="string">'id'</span>])</span><br><span class="line">              <span class="keyword">let</span> key = btn[<span class="string">'target'</span>][<span class="string">'id'</span>];</span><br><span class="line">              <span class="keyword">let</span> x = prompt(<span class="string">'给我一个网址'</span>);</span><br><span class="line">              hash[key] = x;</span><br><span class="line">              localStorage.setItem(<span class="string">'localStorage'</span>, <span class="built_in">JSON</span>.stringify(x));</span><br><span class="line">          &#125;</span><br><span class="line">          divContainer.appendChild(kbdContainer);</span><br><span class="line">          index2++;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      index = index + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.onkeypress = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> key = e.key;</span><br><span class="line">      <span class="keyword">let</span> website = hash[key];</span><br><span class="line">      <span class="built_in">console</span>.log(website)</span><br><span class="line">      location.href = <span class="string">'http://'</span> + website;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>但是，我们的需求永远不会止步，我们需要的是一个能够修改的键盘网址导航！</p>
+<p>这个时候就要用到js的prompt() ，<br>并将对应的值赋给相应的hash里面的key的value，我们都知道，hash里面的每一个key都对应着一个value。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = prompt(<span class="string">'给我一个网址'</span>);</span><br><span class="line"></span><br><span class="line">hash[key] = x;</span><br></pre></td></tr></table></figure>
+<p>然后，我们还要将修改后的网址储存起来，这时候我们会想到用一下localStorage 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">'localStorage'</span>, <span class="built_in">JSON</span>.stringify(x));</span><br></pre></td></tr></table></figure>
+<p>接着我们要做的是，将localStorage取出来,这时候要判断一下，万一localStorage为空的怎么办…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hasLocalStorage = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'localStorage'</span>) || <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (hasLocalStorage) &#123;</span><br><span class="line">       hash = hasLocalStorage;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>最后，大功告成，css还需要修缮，敬请期待: <a href="https://easecy.github.io/nav-demo/" target="_blank" rel="noopener">https://easecy.github.io/nav-demo/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/May-26-2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -748,7 +882,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
