@@ -229,6 +229,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/b-July-14-2018/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ease">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ease">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/b-July-14-2018/" itemprop="url">js对象（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-14T20:31:25+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>学习js对象之前，先要知道js对象(object)与基本类型的区别</p>
+<p>所谓的基本类型有 数字(number)、 字符串(string)、 布尔(boolean)、 symbol、 null、 undefined ，然后js的对象(object)都<br>是有这些基本类型组成的。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ease = &#123;</span><br><span class="line">    name : &apos;ease&apos; ,  // String</span><br><span class="line">    age  :  20  ,    // Number</span><br><span class="line">    married: false , // Boolean</span><br><span class="line">    car : null       // Null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ECMAScript规定储存时数字是64位，字符是16位。ES6之后，字符也可以是32位，4个字节一个字节8位。</p>
+<p>所有的对象和变量之间的关系都是引用关系：当变量a中存了一个地址，地址指向的Heap里存着一个对象，这时我们说a是对象的引用。</p>
+<p><strong>对于简单类型的数据来说，赋值就是深拷贝。</strong></p>
+<p>关于内存图</p>
+<blockquote>
+<p>简单的值存储在stack (栈内存) null string undefinded symbol boolean<br> 复杂的就储存在heap (堆内存)  主要存地址，还是存在stack中 ，比如object<br> 如果是简单的值，直接存在stack中，如果是复杂的值，就把地址存在stack中<br> =等于号赋值的时候，不会去改动heap中的东西，只有给对象的属性重新定义的时候会改动heap里面的东西(obj.name=lion)</p>
+</blockquote>
+<h3 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h3><p> 关于浅拷贝与深拷贝，放一张内存图：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ft9ouljd4uj21kw11bqv5.jpg" alt=""></p>
+<p> 由内存图可以看出：</p>
+<p> 在浅拷贝中，b的值随着a的改变而改变，也可以看到，红色的代表深拷贝后，所有的a的属性都拷贝一次，但是这次b却将地址给更改了</p>
+<h3 id="浏览器解析"><a href="#浏览器解析" class="headerlink" title="浏览器解析"></a>浏览器解析</h3><p>例子：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;n:1&#125;</span><br><span class="line">var b = a ;</span><br><span class="line">a.x = a =&#123;n:2&#125;</span><br><span class="line">alert(a.x) //undefined</span><br><span class="line">alert(b.x) //[object,object]</span><br></pre></td></tr></table></figure></p>
+<p> 内存图：</p>
+<p> <img src="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ft9poxlfe1j21kw23vnpg.jpg" alt=""></p>
+<p> 解析：由于浏览器的解析是从左到右的，所以a.x还是保留了地址34，而后半部分a={n:2}改成了地址54，与前者34不相同，所以第一问会<br> 报出undefined错误</p>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><blockquote>
+<p>如果一个对象没有被引用，那就是它将作为垃圾被回收。</p>
+</blockquote>
+<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function()&#123;&#125;</span><br><span class="line">document.body.onclick = fn</span><br><span class="line">fn = null</span><br></pre></td></tr></table></figure></p>
+<p>内存图：</p>
+<p> <img src="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ft9pthjgm1j21kw0ylu0x.jpg" alt=""></p>
+<p>由内存图可知，第二次 fn = null之后 ，fn并不是垃圾，因为还存在着onclick对fn的调用</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/July-14-2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -466,7 +611,7 @@
         
           
             <blockquote>
-<p>javascript 里面有七种基本的数据类型：数字(number)、 字符串(string)、 布尔(boolean)、 symbol、 null、 undefined<br>、 对象(object)，其中我们一般将数字(number)、 字符串(string)、 布尔(boolean)、 symbol、 null、 undefined 称为“基本类型”或者<br>“简单类型”</p>
+<p>javascript 里面有七种常见数据类型：数字(number)、 字符串(string)、 布尔(boolean)、 symbol、 null、 undefined<br>、 对象(object)，其中我们一般将数字(number)、 字符串(string)、 布尔(boolean)、 symbol、 null、 undefined 称为“基本类型”或者<br>“简单类型”</p>
 </blockquote>
 <h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><p>number 有二进制、八进制、十进制、十六进制之分</p>
 <p>下面是JavaScript对进制的常见的表示方法：</p>
@@ -1213,7 +1358,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
