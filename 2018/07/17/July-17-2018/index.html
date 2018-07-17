@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="1.网址https://explainshell.com/    解释linux命令 www.namesilo.com             便宜的域名    www.500d.me                  好看的简历    dribbble.com                 顶级设计师聚集 2.html a标签里面的href究竟能写什么？1&amp;lt;a href= &quot;&quot;&amp;gt;">
+<meta name="description" content="原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，    那么所有实例对象就能共享，一般的，我们可以将原型对象的所有属性和方法叫做公有属性.  为什么需要原型？先看两张图：   从上面的图可以看出，无论是对象Number还是Boolean，都存在toString()这个属性值。其实，对象与对象之间有很多相同的属性值，但是在js设计之初，如果每个对象都复制一遍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html知识总结">
-<meta property="og:url" content="http://yoursite.com/2018/05/15/html知识总结/index.html">
+<meta property="og:title" content="原型与原型链">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/July-17-2018/index.html">
 <meta property="og:site_name" content="ease">
-<meta property="og:description" content="1.网址https://explainshell.com/    解释linux命令 www.namesilo.com             便宜的域名    www.500d.me                  好看的简历    dribbble.com                 顶级设计师聚集 2.html a标签里面的href究竟能写什么？1&amp;lt;a href= &quot;&quot;&amp;gt;">
+<meta property="og:description" content="原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，    那么所有实例对象就能共享，一般的，我们可以将原型对象的所有属性和方法叫做公有属性.  为什么需要原型？先看两张图：   从上面的图可以看出，无论是对象Number还是Boolean，都存在toString()这个属性值。其实，对象与对象之间有很多相同的属性值，但是在js设计之初，如果每个对象都复制一遍">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-24T05:55:34.041Z">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftcno8z9pwj208t04kjre.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftcow1o04bj208l06r0sw.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftco994g6oj21kw0pt4oa.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/82dbebd3gy1ftcoxo0qb3j21hc0u0naw.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftconxh0yzj208n02fq2r.jpg">
+<meta property="og:updated_time" content="2018-07-17T03:20:53.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html知识总结">
-<meta name="twitter:description" content="1.网址https://explainshell.com/    解释linux命令 www.namesilo.com             便宜的域名    www.500d.me                  好看的简历    dribbble.com                 顶级设计师聚集 2.html a标签里面的href究竟能写什么？1&amp;lt;a href= &quot;&quot;&amp;gt;">
+<meta name="twitter:title" content="原型与原型链">
+<meta name="twitter:description" content="原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，    那么所有实例对象就能共享，一般的，我们可以将原型对象的所有属性和方法叫做公有属性.  为什么需要原型？先看两张图：   从上面的图可以看出，无论是对象Number还是Boolean，都存在toString()这个属性值。其实，对象与对象之间有很多相同的属性值，但是在js设计之初，如果每个对象都复制一遍">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftcno8z9pwj208t04kjre.jpg">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/15/html知识总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/17/July-17-2018/"/>
 
 
 
 
 
-  <title>html知识总结 | ease</title>
+  <title>原型与原型链 | ease</title>
   
 
 
@@ -232,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/html知识总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/July-17-2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ease">
@@ -249,7 +255,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">html知识总结</h1>
+          <h1 class="post-title" itemprop="name headline">原型与原型链</h1>
         
 
         <div class="post-meta">
@@ -261,8 +267,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T16:06:15+08:00">
-                2018-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T10:16:25+08:00">
+                2018-07-17
               </time>
             
 
@@ -299,46 +305,22 @@
       
 
       
-        <hr>
-<h6 id="1-网址"><a href="#1-网址" class="headerlink" title="1.网址"></a>1.网址</h6><p><a href="https://explainshell.com/" target="_blank" rel="noopener">https://explainshell.com/</a>    解释linux命令 <br><br><a href="http://www.namesilo.com" target="_blank" rel="noopener">www.namesilo.com</a>             便宜的域名    <br><br><a href="http://www.500d.me" target="_blank" rel="noopener">www.500d.me</a>                  好看的简历    <br><br>dribbble.com                 顶级设计师聚集</p>
-<h6 id="2-html"><a href="#2-html" class="headerlink" title="2.html"></a>2.html</h6><ul>
-<li>a标签里面的href究竟能写什么？<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>= <span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>例如想要跳转到qq.com 就不可以写 href=”qq.com” ，不然浏览器会以为这是相对路径（文件），要写成 <a href="http://qq.com" target="_blank" rel="noopener">http://qq.com</a>, http协议要声明http，//表示当前协议，如果当前是windows文件协议，那么只写//的话就只是打开【文件树】</p>
-<ul>
-<li>点击以后什么也不做的a标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href= &quot;javascript:void(0);&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href= &quot;javascript: ;&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>a标签和form标签的区别</p>
-<p>  a标签发起的是get请求，form标签发起的是get,post请求<br><br>  form 标签里面有一个 button 元素，button 的 type 属性为空，也可以提交表单</p>
-</li>
-<li><p>iframe 属性了解一下</p>
-<p>  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe</a></p>
-</li>
-<li><p>根据 HTML 规范 ，table的子元素可以是</p>
-<p>  thead<br>  tbody<br>  tfoot<br>  colgroup</p>
-</li>
-</ul>
-<h6 id="3-css"><a href="#3-css" class="headerlink" title="3.css"></a>3.css</h6><p>下面哪些元素的默认 display 为 block<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div ul h1</span><br></pre></td></tr></table></figure></p>
-<p>body 标签的默认 margin 是多少像素</p>
-<pre><code>8
-</code></pre><p>如何用 meta 声明当前页面的 charset？</p>
-<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; &gt;
-第二种写法是为了不久后端开发忘了设置 http 的 content-type
-</code></pre><p>CSS 里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类 外观渲染独立于CSS的 外部对象。 典型的可替换元素有 img、 object、 video 和 表单元素，如textarea、 input 某些元素只在一些特殊情况下表现为可替换元素，例如 audio 和 canvas 。 通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。<br>CSS在某些情况下会对可替换元素做特殊处理，比如计算外边距和一些auto值。<br>需要注意的是，一部分（并非全部）可替换元素，本身具有尺寸和基线（baseline），会被像vertical-align之类的一些 CSS 属性用到。</p>
-<h6 id="4-javascript"><a href="#4-javascript" class="headerlink" title="4.javascript"></a>4.javascript</h6><ol>
-<li>noscript 标签</li>
-</ol>
-<blockquote>
-<p>在有些浏览器禁用脚本，或者脚本未被支持，这时候，则noscript里面的脚本定义了替代的内容（生效）</p>
+        <blockquote>
+<p>  原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，<br>    那么所有实例对象就能共享，一般的，我们可以将原型对象的所有属性和方法叫做公有属性.</p>
 </blockquote>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/noscript" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/noscript</a></p>
-
+<h3 id="为什么需要原型？"><a href="#为什么需要原型？" class="headerlink" title="为什么需要原型？"></a>为什么需要原型？</h3><p>先看两张图：</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftcno8z9pwj208t04kjre.jpg" alt=""></p>
+<p><img src="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftcow1o04bj208l06r0sw.jpg" alt=""></p>
+<p>从上面的图可以看出，无论是对象Number还是Boolean，都存在toString()这个属性值。其实，对象与对象之间有很多相同的属性值<br>，但是在js设计之初，如果每个对象都复制一遍相同的属性值，是不是很麻烦呢，所以就想到了一种这样的设计，<br>将公有的属性值，全部放在放在一个对象里(「公用属性组成的对象」)，<br>然后让每一个对象的 <strong>proto</strong> 存储这个「公用属性组成的对象」的地址。这样一来不仅方便,而且节省空间。</p>
+<h3 id="关于原型链"><a href="#关于原型链" class="headerlink" title="关于原型链"></a>关于原型链</h3><p>又上一张图</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftco994g6oj21kw0pt4oa.jpg" alt=""></p>
+<p>或者就像这样(方老师的图)</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/82dbebd3gy1ftcoxo0qb3j21hc0u0naw.jpg" alt=""></p>
+<p>从上图可以看出，每个对象都有一个原型，而每个对象的原型之间都可以相互调用，每个对象的原型的<strong>proto</strong>最后还会指向Object的原型。Object的<br>原型的<strong>proto</strong>还可以指向null。</p>
+<p>最终的结果就像这样：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftconxh0yzj208n02fq2r.jpg" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var 对象 = new 函数()</span><br><span class="line">对象.__proto__ === 对象的构造函数.prototype</span><br><span class="line"></span><br><span class="line">// 推论</span><br><span class="line">var number = new Number()</span><br><span class="line">number.__proto__ = Number.prototype</span><br><span class="line">Number.__proto__ = Function.prototype // 因为 Number 是 Function 的实例</span><br><span class="line"></span><br><span class="line">var object = new Object()</span><br><span class="line">object.__proto__ = Object.prototype</span><br><span class="line">Object.__proto__ = Function.prototype // 因为 Object 是 Function 的实例</span><br><span class="line"></span><br><span class="line">var function = new Function()</span><br><span class="line">function.__proto__ = Function.prototype</span><br><span class="line">Function.__proto__ == Function.prototye // 因为 Function 是 Function 的实例！</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -362,15 +344,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/14/b-July-14-2018/" rel="next" title="js对象（一）">
+                <i class="fa fa-chevron-left"></i> js对象（一）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/24/May-24-2018/" rel="prev" title="CSS知识总结">
-                CSS知识总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,7 +466,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-网址"><span class="nav-number">1.</span> <span class="nav-text">1.网址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-html"><span class="nav-number">2.</span> <span class="nav-text">2.html</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-css"><span class="nav-number">3.</span> <span class="nav-text">3.css</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-javascript"><span class="nav-number">4.</span> <span class="nav-text">4.javascript</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要原型？"><span class="nav-number">1.</span> <span class="nav-text">为什么需要原型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于原型链"><span class="nav-number">2.</span> <span class="nav-text">关于原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
