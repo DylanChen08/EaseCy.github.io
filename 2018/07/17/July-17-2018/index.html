@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftco994g6oj21kw0pt4oa.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw690/82dbebd3gy1ftcoxo0qb3j21hc0u0naw.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftconxh0yzj208n02fq2r.jpg">
-<meta property="og:updated_time" content="2018-07-17T03:24:54.287Z">
+<meta property="og:updated_time" content="2018-07-17T03:34:00.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型与原型链">
 <meta name="twitter:description" content="原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，一般的，我们可以将原型对象的所有属性和方法叫做公有属性.  为什么需要原型？先看两张图：   从上面的图可以看出，无论是对象Number还是Boolean，都存在toString()这个属性值。其实，对象与对象之间有很多相同的属性值，但是在js设计之初，如果每个对象都复制一遍相同的属性值">
@@ -316,7 +316,7 @@
 <p><img src="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftco994g6oj21kw0pt4oa.jpg" alt=""></p>
 <p>或者就像这样(方老师的图)</p>
 <p><img src="http://wx4.sinaimg.cn/mw690/82dbebd3gy1ftcoxo0qb3j21hc0u0naw.jpg" alt=""></p>
-<p>从上图可以看出，每个对象都有一个原型，而每个对象的原型之间都可以相互调用，每个对象的原型的<strong>proto</strong>最后还会指向Object的原型。Object的<br>原型的<strong>proto</strong>还可以指向null。</p>
+<p>从上图可以看出，每个对象都有一个原型，而每个对象的原型之间都可以相互调用，每个对象的原型的<strong>proto</strong>最后还会指向Object的原型。Object的原型的<strong>proto</strong>最终指向null。</p>
 <p>最终的结果就像这样：</p>
 <p><img src="http://wx1.sinaimg.cn/mw690/82dbebd3gy1ftconxh0yzj208n02fq2r.jpg" alt=""></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var 对象 = new 函数()</span><br><span class="line">对象.__proto__ === 对象的构造函数.prototype</span><br><span class="line"></span><br><span class="line">// 推论</span><br><span class="line">var number = new Number()</span><br><span class="line">number.__proto__ = Number.prototype</span><br><span class="line">Number.__proto__ = Function.prototype // 因为 Number 是 Function 的实例</span><br><span class="line"></span><br><span class="line">var object = new Object()</span><br><span class="line">object.__proto__ = Object.prototype</span><br><span class="line">Object.__proto__ = Function.prototype // 因为 Object 是 Function 的实例</span><br><span class="line"></span><br><span class="line">var function = new Function()</span><br><span class="line">function.__proto__ = Function.prototype</span><br><span class="line">Function.__proto__ == Function.prototye // 因为 Function 是 Function 的实例！</span><br></pre></td></tr></table></figure>
