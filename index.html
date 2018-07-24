@@ -229,6 +229,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/July-24-2018/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ease">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ease">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/July-24-2018/" itemprop="url">JS函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T10:30:37+08:00">
+                2018-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="函数声明方式-amp-类别"><a href="#函数声明方式-amp-类别" class="headerlink" title="函数声明方式&amp;类别"></a>函数声明方式&amp;类别</h3><p>1.具名函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span> (<span class="params">args1,args2</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;<span class="comment">//输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.匿名函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> f= <span class="function"><span class="keyword">function</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意:如果不把匿名函数赋给变量，就会出现报错</p>
+<p>3.使用window.Function函数对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">Function</span> ([arg1[, arg2[, ...argN]],] functionBody)</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<p>arg1, arg2, … argN</p>
+<p>被函数使用的参数的名称必须是合法命名的。参数名称是一个有效的JavaScript标识符的字符串，<br>或者一个用逗号分隔的有效字符串的列表;例如“×”，“theValue”，或“A，B”。</p>
+<p>functionBody</p>
+<p>一个含有包括函数定义的JavaScript语句的字符串。</p>
+<p>4.箭头函数（匿名函数）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="function">(<span class="params">x,y</span>)=&gt;</span>&#123;<span class="keyword">return</span> x+y &#125;</span><br><span class="line">a(<span class="number">1</span>)<span class="comment">//expected output : 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b =<span class="function">(<span class="params">x,y</span>)=&gt;</span>x+y    <span class="comment">//如果return只有一句话，不能返回对象，同时，可以省去return和花括号(只有一个参数的情况下)</span></span><br><span class="line">b(<span class="number">1</span>,<span class="number">1</span>)<span class="comment">//expected output : 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="function"><span class="params">n</span>=&gt;</span>n+n</span><br><span class="line">c(<span class="number">1</span>) <span class="comment">//expected output : 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="用call更好地理解this"><a href="#用call更好地理解this" class="headerlink" title="用call更好地理解this"></a>用call更好地理解this</h3><p>call方法可以用来调用函数</p>
+<blockquote>
+<p>function.call(thisArg, arg1, , …)</p>
+</blockquote>
+<p>其中第一个参数thisArg指向javascript的this,如果第一个参数不指定，一般为undefined。<br>arg1,arg2,argn…组成一个伪数组（原型链不指向Array.prototype）</p>
+<p>在不声明 ‘use strict’（严格模式）的情况下，this会指向全局对象window</p>
+<p>下面是一个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">f.call()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">h.call()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>我们一般是这样来调用一个函数的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"f"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+<p>实际上，上面的方法是一个语法糖，真正的调用方式应该是下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">x,y</span>)</span>&#123;</span><br><span class="line"><span class="meta">'use strict'</span></span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"f"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f.call(<span class="literal">undefined</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//expected output:3</span></span><br></pre></td></tr></table></figure>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a =<span class="number">2</span> ;</span><br><span class="line">        f2.call();</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> a =<span class="number">3</span></span><br><span class="line">            <span class="built_in">console</span>.log(a)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f1.call()</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<p>可以画一个图帮助理解:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ftksx5ud81j21kw2bo7wj.jpg" alt=""></p>
+<p>在全局范围内用到a , 就找到全局的a .<br>变量在哪里声明，就在哪个反胃去找，找不到就找父级元素</p>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>还是哪个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        f2.call();</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line">        <span class="keyword">var</span> a =<span class="number">2</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1.call()</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<p>上面的例子的结果是1，而不是2</p>
+<p>因为变量提升，可以写成下面得人样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a ;</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a;</span><br><span class="line">        f2.call();</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line">        a =<span class="number">2</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f1.call()</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<p>由此可见,在函数f1的作用域中，a并没有被赋值(由于变量提升，只是被声明而已)，所以输出的还是全局对象中的a的值1</p>
+<h3 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a>name属性</h3><pre><code>规律：
+&gt;匿名函数.name = 所赋值的变量名
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function f1()&#123;&#125;</span><br><span class="line">f1.name //f1</span><br><span class="line"></span><br><span class="line">var f2 = function()&#123;&#125;</span><br><span class="line">f2.name //f2</span><br><span class="line"></span><br><span class="line">var f3 = function f4()&#123;&#125;</span><br><span class="line">f3.name  //f3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f5 = new Function(&apos;x&apos;,&apos;y&apos;,&apos;x+y&apos;)</span><br><span class="line">f5.name // anonymous</span><br></pre></td></tr></table></figure>
+<p>###递归</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ftktnvgfz0j21hc0u0qdy.jpg" alt=""></p>
+<h3 id="闭包-更新中"><a href="#闭包-更新中" class="headerlink" title="闭包(更新中)"></a>闭包(更新中)</h3><p>如果一个函数，使用了他范围之外的变量，那么这个（函数+变量）就叫做闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/July-22-2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -322,6 +484,8 @@
 <p>undefined.</p>
 <p>例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var a = [1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">a.forEach(function(//value,key) &#123;</span><br><span class="line">    console.log(&quot;//value&quot;,//value,&quot;key&quot;,key)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//结果：</span><br><span class="line">//value 1 key 0</span><br><span class="line">//value 2 key 1</span><br><span class="line">//value 3 key 2</span><br><span class="line">//value 4 key 3</span><br><span class="line">//value 5 key 4</span><br><span class="line">//value 6 key 5</span><br><span class="line">//value 7 key 6</span><br><span class="line">//value 8 key 7</span><br><span class="line">//value 9 key 8</span><br></pre></td></tr></table></figure>
+<p><strong>reduce</strong><br><img src="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ftkthqv23jj20kz0lu77a.jpg" alt=""></p>
+<p><img src="http://wx3.sinaimg.cn/mw690/82dbebd3gy1ftktly7e57j20ko0m9442.jpg" alt=""><br>sort的原理是快排</p>
 <h3 id="常用的API"><a href="#常用的API" class="headerlink" title="常用的API"></a>常用的API</h3><p>Array.join</p>
 <p>Array.concat</p>
 <p>Array.map 和 Array.concat  功能一样 但是 map有返回值</p>
@@ -1636,7 +1800,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
