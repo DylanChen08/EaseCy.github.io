@@ -301,9 +301,9 @@
         
           
             <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>jquery的本质上是对原生Dom的再一次封装，然后到最后暴露出$和jquery两个变量，供用户调用，而这一次，我们要做的是，按照jquery的思想，<br>实现jquery的一个类似物。</p>
+<p>jquery的本质上是对原生Dom的再一次封装，然后到最后暴露出$和jquery两个变量，供用户调用，而这一次，我们要做的是，按照jquery的思想，实现jquery的一个类似物。</p>
 </blockquote>
-<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>既然要打造自己的javascript库，就要有自己的命名空间，自己的变量，要保证：自己设定的变量不会污染到全局，并且也不要让别人设置<br>的变量污染了自己的。</p>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>既然要打造自己的javascript库，就要有自己的命名空间，自己的变量，要保证：自己设定的变量不会污染到全局，并且也不要让别人设置的变量污染了自己的。</p>
 <p>最早期，大家是这样做的：（通过规划命名空间）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myLib = &#123;&#125;</span><br><span class="line">myLib.getSiblings(node)</span><br><span class="line">myLib.addClass(node, &#123;<span class="attr">a</span>: <span class="literal">true</span>, <span class="attr">b</span>: <span class="literal">false</span>&#125;)</span><br></pre></td></tr></table></figure>
 <p>但是这样的做法显然比较麻烦，所以又有了下面的做法：（通过在node.prototype上新增属性）</p>
