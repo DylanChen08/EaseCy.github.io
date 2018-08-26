@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ftksx5ud81j21kw2bo7wj.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/82dbebd3gy1ftktnvgfz0j21hc0u0qdy.jpg">
-<meta property="og:updated_time" content="2018-08-10T10:19:30.616Z">
+<meta property="og:updated_time" content="2018-08-26T08:03:00.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS函数">
 <meta name="twitter:description" content="函数声明方式&amp;amp;类别1.具名函数 1234function x (args1,args2)&amp;#123;    return undefined;//输出&amp;#125; 2.匿名函数 1234var f= function(input1,input2)&amp;#123;    return undefined;    &amp;#125; 注意:如果不把匿名函数赋给变量，就会出现报错 3.使用window.F">
@@ -379,6 +379,7 @@
 <p> i 的值从 0 变化到 5，对应 6 个立即执行函数，这 6 个立即执行函数里面的 ii 「分别」是 0、1、2、3、4、5。</p>
 </li>
 </ol>
+<h3 id="ES5用函数模拟类"><a href="#ES5用函数模拟类" class="headerlink" title="ES5用函数模拟类"></a>ES5用函数模拟类</h3><p>ES5没有class关键字，只能通过函数来模拟<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function Man(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Man.prototype.sleep = function()&#123;console.log(&quot;休息&quot;)&#125;</span><br><span class="line"></span><br><span class="line">var person = new Man(&apos;ease&apos;)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -492,7 +493,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -529,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明方式-amp-类别"><span class="nav-number">1.</span> <span class="nav-text">函数声明方式&amp;类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用call更好地理解this"><span class="nav-number">2.</span> <span class="nav-text">用call更好地理解this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">3.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升"><span class="nav-number">4.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name属性"><span class="nav-number">5.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包-更新中"><span class="nav-number">6.</span> <span class="nav-text">闭包(更新中)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数"><span class="nav-number">7.</span> <span class="nav-text">立即执行函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明方式-amp-类别"><span class="nav-number">1.</span> <span class="nav-text">函数声明方式&amp;类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用call更好地理解this"><span class="nav-number">2.</span> <span class="nav-text">用call更好地理解this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">3.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升"><span class="nav-number">4.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name属性"><span class="nav-number">5.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包-更新中"><span class="nav-number">6.</span> <span class="nav-text">闭包(更新中)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立即执行函数"><span class="nav-number">7.</span> <span class="nav-text">立即执行函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES5用函数模拟类"><span class="nav-number">8.</span> <span class="nav-text">ES5用函数模拟类</span></a></li></ol></div>
             
 
           </div>
