@@ -4,6 +4,8 @@
 
 > 写博客的初心 ， 是为了记录学习 ，方便日后查阅 ，与君共勉 。
 
+> 友情链接: [Hyper Qing's 魔法书](https://hyperqing.github.io)
+
 ## 2018
 
 ### July
